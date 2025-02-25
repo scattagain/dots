@@ -104,7 +104,7 @@ return function(screen)
                             card = 0,
                             device = "default",
                             widget_type = "horizontal_bar",
-                            shape = "rounded_bar",
+                            shape = gears.shape.rounded_bar,
                             width = 60,
                             main_color = beautiful.catppuccin.accent,
                             bg_color = beautiful.catppuccin.surface1,

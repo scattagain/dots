@@ -2,10 +2,6 @@ local awful = require("awful")
 local beautiful = require("beautiful")
 
 return {
-    options = {
-        taglist_alt_style = true
-    },
-
     tags = { "Primary", "Social", "Reference", "Background", "Recording", "Unnamed", "Unnamed", "Unnamed", "Unnamed" },
 
     layouts = {

@@ -6,7 +6,7 @@ local beautiful = require("beautiful")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local spotify_widget = require('awesome-wm-widgets.spotify-widget.spotify')
 local tasklist = require('widgets.tasklist')
-local taglist = require(beautiful.old_taglist_style and 'widgets.taglist_old' or 'widgets.taglist')
+local taglist = 'widgets.taglist'
 local layoutbox = require('widgets.layoutbox')
 
 local function spacing(width)

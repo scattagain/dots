@@ -50,7 +50,6 @@ theme.border_marked                             = theme.catppuccin.overlay0
 theme.wibar_widget_gap                          = dpi(2)
 theme.wibar_section_gap                         = dpi(5)
 theme.wibar_height                              = dpi(45)
-theme.old_taglist_style                         = false
 
 theme.hotkeys_border_color                      = theme.border_focus
 theme.hotkeys_border_width                      = theme.border_width

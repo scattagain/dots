@@ -1,6 +1,5 @@
 local awful = require("awful")
 local gears = require("gears")
-local beautiful = require("beautiful")
 local apps = require("config.apps")
 
 local hotkeys_popup = require("awful.hotkeys_popup")
@@ -123,29 +122,6 @@ awful.keyboard.append_global_keybindings {
     awful.key({ mod.super }, "s", function() awful.util.spawn("flameshot gui") end,
         { description = "Take screenshot", group = "screen" })
 }
-
-if beautiful.old_taglist_style then
-    awful.keyboard.append_global_keybindings {
-        awful.key({ mod.super, mod.shift }, "r", function()
-            local tag = awful.screen.focused().selected_tag
-            awful.prompt.run {
-                prompt        = "",
-                text          = tag.name,
-                textbox       = awful.screen.focused().tagtextbox,
-                exe_callback  = function(name)
-                    if not name or #name == 0 then return end
-
-                    if tag then
-                        tag.name = name or tag.name
-                    end
-                end,
-                done_callback = function()
-                    tag.name = tag.name
-                end
-            }
-        end, { description = "rename tag", group = "tag" })
-    }
-end
 
 awful.keyboard.append_global_keybindings {
     awful.key {

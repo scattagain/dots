@@ -6,7 +6,7 @@ local beautiful = require("beautiful")
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local spotify_widget = require('awesome-wm-widgets.spotify-widget.spotify')
 local tasklist = require('widgets.tasklist')
-local taglist = 'widgets.taglist'
+local taglist = require('widgets.taglist')
 local layoutbox = require('widgets.layoutbox')
 
 local function spacing(width)
@@ -33,7 +33,6 @@ return function(screen)
         width = screen.geometry.width - beautiful.useless_gap * 4,
     }
 
-    screen.taglist = taglist(screen)
     wibar:setup {
         layout = wibox.layout.ratio.horizontal,
 
@@ -60,7 +59,7 @@ return function(screen)
                         layout = wibox.layout.fixed.horizontal,
                         padding,
 
-                        screen.taglist,
+                        taglist(screen),
                         sectionGap
                     },
 

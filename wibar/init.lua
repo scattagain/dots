@@ -28,7 +28,7 @@ return function(screen)
         position = "top",
         screen = screen,
         bg = "#00000000",
-        height = beautiful.wibar_height,
+        height = beautiful.wibar_height + beautiful.useless_gap * 2,
         width = screen.geometry.width - beautiful.useless_gap * 4,
     }
 

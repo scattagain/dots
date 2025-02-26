@@ -40,7 +40,7 @@ awful.keyboard.append_global_keybindings {
             local screen = awful.screen.focused()
             local tag = screen.selected_tag
             local other = screen.tags[tag.index - 1]
-            if other or true then tag:swap(other) end
+            if other then tag:swap(other) end
         end,
         { description = "swap with previous", group = "tag" }
     ),

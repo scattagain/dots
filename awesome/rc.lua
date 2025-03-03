@@ -1,3 +1,4 @@
+package.loaded["naughty.dbus"] = {}
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -14,7 +15,6 @@ require("signals")
 require("awful.autofocus")
 require("awful.hotkeys_popup.keys")
 
-package.loaded["naughty.dbus"] = {}
 awful.spawn.with_shell(gears.filesystem.get_configuration_dir() .. "autorun.sh")
 
 collectgarbage("incremental", 110, 1000)

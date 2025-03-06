@@ -1,6 +1,0 @@
-[submodule "awesome-wm-widgets"]
-	path = awesome/awesome-wm-widgets
-	url = https://github.com/scattagain/awesome-wm-widgets
-[submodule "rubato"]
-	path = awesome/rubato
-	url = https://github.com/andOrlando/rubato

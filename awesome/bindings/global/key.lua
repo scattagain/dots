@@ -1,5 +1,6 @@
 local awful = require("awful")
 local gears = require("gears")
+local machi = require("layout-machi")
 local apps = require("config.apps")
 
 local hotkeys_popup = require("awful.hotkeys_popup")
@@ -23,6 +24,10 @@ local function move_mouse_onto_focused_client()
 end
 
 awful.keyboard.append_global_keybindings {
+    awful.key({ mod.super }, ".", function() machi.default_editor.start_interactive() end,
+        { description = "edit the current layout if it is a machi layout", group = "layout" }),
+    awful.key({ mod.super, mod.shift }, "/", function() machi.switcher.start(client.focus) end,
+        { description = "switch between windows for a machi layout", group = "layout" }),
     awful.key({ mod.super }, "x",
         function() awesome.emit_signal("dashboard::toggle") end,
         { description = "get powermenu", group = "awesome" }),

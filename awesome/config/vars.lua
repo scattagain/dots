@@ -1,10 +1,11 @@
 local awful = require("awful")
-local beautiful = require("beautiful")
+local machi = require("layout-machi")
 
 return {
     tags = { "Primary", "Social", "Reference", "Background", "Recording", "Unnamed", "Unnamed", "Unnamed", "Unnamed" },
 
     layouts = {
+        machi.default_layout,
         awful.layout.suit.tile,
         awful.layout.suit.tile.left,
         awful.layout.suit.tile.bottom,

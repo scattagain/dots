@@ -4,3 +4,6 @@
 [submodule "awesome/rubato"]
 	path = awesome/rubato
 	url = https://github.com/andOrlando/rubato
+[submodule "awesome/layout-machi"]
+	path = awesome/layout-machi
+	url = https://github.com/xinhaoyuan/layout-machi

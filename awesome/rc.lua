@@ -15,6 +15,8 @@ require("signals")
 require("awful.autofocus")
 require("awful.hotkeys_popup.keys")
 
+awful.layout.layouts = require("config.vars").layouts
+
 awful.spawn.with_shell(gears.filesystem.get_configuration_dir() .. "autorun.sh")
 
 collectgarbage("incremental", 110, 1000)

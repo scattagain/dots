@@ -61,10 +61,13 @@ return function(screen)
 
                         {
                             widget = wibox.container.margin,
-                            margins = 3,
+                            top = 5,
+                            bottom = 5,
+                            right = 5,
 
                             layoutbox(screen)
                         },
+
                         taglist(screen),
                         sectionGap
                     },

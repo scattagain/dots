@@ -32,7 +32,7 @@ awful.keyboard.append_global_keybindings {
         function() awesome.emit_signal("dashboard::toggle") end,
         { description = "get powermenu", group = "awesome" }),
     awful.key({ mod.super }, "Escape",
-        function() awful.spawn.with_shell("~/.config/rofi/scripts/powermenu_t2") end,
+        function() awful.spawn.with_shell("~/.config/rofi/powermenu.sh") end,
         { description = "get powermenu", group = "awesome" }),
     awful.key({ mod.super }, "/", hotkeys_popup.show_help,
         { description = "show help", group = "awesome" }),
@@ -122,7 +122,7 @@ awful.keyboard.append_global_keybindings {
         { description = "restore minimized", group = "client" }),
 
     -- Prompt
-    awful.key({ mod.super }, "r", function() awful.spawn.with_shell("~/.config/rofi/scripts/launcher_t1") end,
+    awful.key({ mod.super }, "r", function() awful.spawn.with_shell("~/.config/rofi/launcher.sh") end,
         { description = "run prompt", group = "launcher" }),
     awful.key({ mod.super }, "s", function() awful.util.spawn("flameshot gui") end,
         { description = "Take screenshot", group = "screen" })

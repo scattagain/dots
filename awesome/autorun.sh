@@ -8,8 +8,8 @@ run() {
 }
 
 run dunst
-# run picom
-run xcompmgr -n -F
+run picom -b
+# run xcompmgr -n -F
 run flameshot &
 run light-locker
 run xbindkeys

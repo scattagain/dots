@@ -59,11 +59,8 @@ return function(screen)
         style           = {
             shape = gears.shape.rounded_bar,
             bg_focus = beautiful.catppuccin.accent,
-            fg_focus = beautiful.catppuccin.base,
             bg_empty = beautiful.catppuccin.surface0,
-            fg_empty = beautiful.catppuccin.subtext0,
             bg_occupied = beautiful.catppuccin.surface2,
-            fg_occupied = beautiful.catppuccin.text
         },
         layout          = {
             spacing = 5,

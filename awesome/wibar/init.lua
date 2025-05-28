@@ -30,11 +30,30 @@ return function(screen)
 
             {
                 layout = wibox.layout.align.horizontal,
-                pill(left(screen)),
+                expand = "outside",
 
-                wibox.widget.seperator,
+                {
+                    halign = "left",
+                    widget = wibox.container.place,
 
-                pill(right())
+                    pill(left(screen)),
+                },
+
+                pill {
+                    layout = wibox.layout.fixed.horizontal,
+
+                    spacing.padding,
+                    wibox.widget.textclock("%a %b %d - %I:%M %p"),
+                    spacing.padding
+                },
+
+
+                {
+                    halign = "right",
+                    widget = wibox.container.place,
+
+                    pill(right())
+                }
             }
         },
     }

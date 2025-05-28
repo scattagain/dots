@@ -47,6 +47,7 @@ theme.border_normal                             = theme.catppuccin.surface2
 theme.bar_border_color                          = theme.catppuccin.accent
 theme.border_focus                              = theme.catppuccin.accent
 theme.border_marked                             = theme.catppuccin.overlay0
+theme.border_color_active                       = theme.catppuccin.accent
 
 theme.wibar_widget_gap                          = dpi(2)
 theme.wibar_section_gap                         = dpi(5)

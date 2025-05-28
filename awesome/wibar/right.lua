@@ -18,9 +18,6 @@ return function()
         },
         spacing.widgetGap,
 
-        wibox.widget.textclock("%a %b %d - %I:%M %p "),
-        spacing.widgetGap,
-
         {
             bg = beautiful.catppuccin.surface0,
             shape = gears.shape.rounded_bar,

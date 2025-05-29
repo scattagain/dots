@@ -66,6 +66,7 @@ return function(screen)
 
                 {
                     id     = 'text_role',
+                    ellipsize = "middle",
                     widget = wibox.widget.textbox,
                 },
             },

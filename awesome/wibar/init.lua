@@ -41,6 +41,7 @@ return function(screen)
 
                 pill {
                     layout = wibox.layout.fixed.horizontal,
+                    spacing = beautiful.wibar_widget_gap,
 
                     spacing.padding,
                     wibox.widget.textclock("%a %b %d - %I:%M %p"),

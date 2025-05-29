@@ -8,6 +8,8 @@ local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 return function()
     return {
         layout = wibox.layout.fixed.horizontal,
+        spacing = beautiful.wibar_widget_gap,
+
         spacing.padding,
 
         {
@@ -16,7 +18,6 @@ return function()
 
             wibox.widget.systray()
         },
-        spacing.widgetGap,
 
         {
             bg = beautiful.catppuccin.surface0,
@@ -32,7 +33,6 @@ return function()
                 },
             }
         },
-        spacing.widgetGap,
 
         volume_widget {
             card = 0,
@@ -44,6 +44,6 @@ return function()
             bg_color = beautiful.catppuccin.surface1,
         },
 
-        spacing.padding
+        spacing.padding,
     }
 end

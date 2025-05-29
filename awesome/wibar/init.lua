@@ -1,13 +1,10 @@
 local awful = require("awful")
 local wibox = require("wibox")
-local gears = require("gears")
 local beautiful = require("beautiful")
 local left      = require("wibar.left")
 local right     = require("wibar.right")
 local spacing   = require("widgets.spacing")
 local pill      = require("widgets.pill")
-
-local tasklist = require('widgets.tasklist')
 
 return function(screen)
     local wibar = awful.wibar {

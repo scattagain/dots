@@ -63,6 +63,10 @@ theme.prompt_fg                                 = "#ff0000"
 -- overriding the default one when
 -- defined, the sets are:
 -- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
+theme.taglist_bg_focus = theme.catppuccin.accent
+theme.taglist_bg_empty = theme.catppuccin.surface0
+theme.taglist_bg_occupied = theme.catppuccin.surface2
+theme.taglist_shape = gears.shape.rounded_bar
 -- tasklist_[bg|fg]_[focus|urgent]
 -- titlebar_[bg|fg]_[normal|focus]
 -- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
@@ -76,7 +80,10 @@ theme.prompt_fg                                 = "#ff0000"
 -- notification_font
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
--- notification_[border_color|border_width|shape|opacity]
+theme.notification_border_color = theme.border_focus
+theme.notification_border_width = theme.border_width
+theme.notification_shape = gears.shape.rounded_rect
+-- notification_opacity
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]

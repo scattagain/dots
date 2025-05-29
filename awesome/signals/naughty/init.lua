@@ -1,4 +1,4 @@
-local naughty = require 'naughty'
+local naughty = require("naughty")
 
 naughty.connect_signal('request::display_error', function(message, startup)
     naughty.notification {
@@ -7,3 +7,5 @@ naughty.connect_signal('request::display_error', function(message, startup)
         message = message
     }
 end)
+
+-- naughty.config.defaults.border_width = 20

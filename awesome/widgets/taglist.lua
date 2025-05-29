@@ -48,20 +48,7 @@ local taglist_buttons = {
 return function(screen)
     return awful.widget.taglist {
         screen          = screen,
-        -- filter          = function(tag)
-        --     return tag.selected or (
-        --         tag.name ~= "Unnamed" or tag.screen.tags[tag.index - 1].name ~= "Unnamed"
-        --     )
-        -- end,
-        filter          = function(tag)
-            return true
-        end,
-        style           = {
-            shape = gears.shape.rounded_bar,
-            bg_focus = beautiful.catppuccin.accent,
-            bg_empty = beautiful.catppuccin.surface0,
-            bg_occupied = beautiful.catppuccin.surface2,
-        },
+        filter          = awful.widget.taglist.filter.all,
         layout          = {
             spacing = 5,
             layout  = wibox.layout.fixed.horizontal

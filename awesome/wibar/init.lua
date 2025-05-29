@@ -5,6 +5,7 @@ local left      = require("wibar.left")
 local right     = require("wibar.right")
 local spacing   = require("widgets.spacing")
 local pill      = require("widgets.pill")
+local tasklist  = require("widgets.tasklist")
 
 return function(screen)
     local wibar = awful.wibar {
@@ -38,11 +39,15 @@ return function(screen)
 
                 pill {
                     layout = wibox.layout.fixed.horizontal,
-                    spacing = beautiful.wibar_widget_gap,
 
-                    spacing.padding,
-                    wibox.widget.textclock("%a %b %d - %I:%M %p"),
-                    spacing.padding
+                    {
+                        left = beautiful.wibar_widget_gap * 4,
+                        right = beautiful.wibar_widget_gap * 4,
+                        draw_empty = false,
+                        widget = wibox.container.margin,
+
+                        tasklist(screen),
+                    }
                 },
 
 

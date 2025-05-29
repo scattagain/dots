@@ -34,6 +34,9 @@ return function()
             }
         },
 
+
+        wibox.widget.textclock("%a %b %d - %I:%M %p "),
+
         volume_widget {
             card = 0,
             device = "default",

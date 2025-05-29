@@ -31,10 +31,10 @@ return function(screen)
         buttons         = tasklist_buttons,
 
         screen          = screen,
-        filter          = awful.widget.tasklist.filter.currenttags,
+        filter          = awful.widget.tasklist.filter.focused,
         style           = {
-            bg_normal = beautiful.catppuccin.surface0,
-            bg_focus  = beautiful.catppuccin.surface1,
+            bg_normal = "#00000000",
+            bg_focus  = "#00000000",
             bg_urgent = beautiful.catppuccin.accent,
             fg_urgent = "#000000",
 
@@ -44,36 +44,31 @@ return function(screen)
             layout = wibox.layout.fixed.horizontal,
 
             spacing = 5,
-            -- spacing_widget = {
-            --     valign = "center",
-            --     halign = "center",
-            --     widget = wibox.container.place,
-
-            --     {
-            --         forced_width = 5,
-            --         shape        = gears.shape.circle,
-            --         widget       = wibox.widget.separator
-            --     },
-            -- },
         },
         widget_template = {
+            id     = 'background_role',
+            widget = wibox.container.background,
+
             {
-                id     = 'background_role',
-                widget = wibox.container.background,
+                layout = wibox.layout.fixed.horizontal,
+
                 {
-                    widget = wibox.container.margin,
-                    margins = 5,
+                    top = 5,
+                    bottom = 5,
+                    right = beautiful.wibar_widget_gap,
+                    widget  = wibox.container.margin,
+
                     {
-                        id     = 'clienticon',
-                        widget = awful.widget.clienticon,
+                        id     = 'icon_role',
+                        widget = wibox.widget.imagebox,
                     },
-                }
+                },
+
+                {
+                    id     = 'text_role',
+                    widget = wibox.widget.textbox,
+                },
             },
-            nil,
-            create_callback = function(self, c, index, objects) --luacheck: no unused args
-                self:get_children_by_id('clienticon')[1].client = c
-            end,
-            layout = wibox.layout.align.vertical,
         },
     }
 end

@@ -14,62 +14,67 @@ local tasklist_buttons = gears.table.join(
                 { raise = true }
             )
         end
-    end),
-    awful.button({}, 3, function()
-        awful.menu.client_list({ beautiful = { width = 250 } })
-    end),
-    awful.button({}, 4, function()
-        awful.client.focus.byidx(1)
-    end),
-    awful.button({}, 5, function()
-        awful.client.focus.byidx(-1)
     end)
 )
 
-return function(screen)
+local function focused(screen)
     return awful.widget.tasklist {
         buttons         = tasklist_buttons,
 
         screen          = screen,
         filter          = awful.widget.tasklist.filter.focused,
-        style           = {
-            bg_normal = "#00000000",
-            bg_focus  = "#00000000",
-            bg_urgent = beautiful.catppuccin.accent,
-            fg_urgent = "#000000",
 
-            shape     = gears.shape.rounded_rect,
-        },
-        layout          = {
+        widget_template = {
             layout = wibox.layout.fixed.horizontal,
 
-            spacing = 5,
-        },
-        widget_template = {
-            id     = 'background_role',
-            widget = wibox.container.background,
+            {
+                top = 5,
+                bottom = 5,
+                right = beautiful.wibar_widget_gap,
+                widget  = wibox.container.margin,
+
+                {
+                    id     = 'icon_role',
+                    widget = wibox.widget.imagebox,
+                },
+            },
 
             {
-                layout = wibox.layout.fixed.horizontal,
+                id     = 'text_role',
+                ellipsize = "middle",
+                widget = wibox.widget.textbox,
+            },
+        },
+    }
+end
+
+local function minimized(screen)
+    return awful.widget.tasklist {
+        buttons         = tasklist_buttons,
+
+        screen          = screen,
+        filter          = awful.widget.tasklist.filter.minimizedcurrenttags,
+
+        widget_template = {
+            layout = wibox.layout.fixed.horizontal,
+            opacity = 0.5,
+
+            {
+                top = 5,
+                bottom = 5,
+                right = beautiful.wibar_widget_gap,
+                widget  = wibox.container.margin,
 
                 {
-                    top = 5,
-                    bottom = 5,
-                    right = beautiful.wibar_widget_gap,
-                    widget  = wibox.container.margin,
-
-                    {
-                        id     = 'icon_role',
-                        widget = wibox.widget.imagebox,
-                    },
-                },
-
-                {
-                    id     = 'text_role',
-                    ellipsize = "middle",
-                    widget = wibox.widget.textbox,
+                    id     = 'icon_role',
+                    widget = wibox.widget.imagebox,
                 },
             },
         },
     }
 end
+
+return {
+    focused = focused,
+    minimized = minimized
+}

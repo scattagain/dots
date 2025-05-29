@@ -4,20 +4,27 @@ local tasklist  = require("widgets.tasklist")
 
 return function(screen)
     return {
+        widget = wibox.container.constraint,
+        width = 900,
         layout = wibox.layout.fixed.horizontal,
 
         {
-            widget = wibox.container.constraint,
-            width = 900,
+            left = beautiful.wibar_widget_gap * 4,
+            right = beautiful.wibar_widget_gap * 4,
+            draw_empty = false,
+            widget = wibox.container.margin,
 
-            {
-                left = beautiful.wibar_widget_gap * 4,
-                right = beautiful.wibar_widget_gap * 4,
-                draw_empty = false,
-                widget = wibox.container.margin,
+            tasklist.focused(screen),
 
-                tasklist(screen),
-            }
+        },
+
+        {
+            left = beautiful.wibar_widget_gap * 4,
+            right = beautiful.wibar_widget_gap * 4,
+            draw_empty = false,
+            widget = wibox.container.margin,
+
+            tasklist.minimized(screen),
         }
     }
 end

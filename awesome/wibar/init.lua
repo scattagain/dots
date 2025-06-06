@@ -16,25 +16,21 @@ return function(screen)
     }
 
     wibar:setup {
-        layout = wibox.layout.flex.horizontal,
+        left = 0,
+        right = 0,
+        top = beautiful.useless_gap * 2,
+        bottom = 0,
+        widget = wibox.container.margin,
 
         {
-            left = 0,
-            right = 0,
-            top = beautiful.useless_gap * 2,
-            bottom = 0,
-            widget = wibox.container.margin,
+            layout = wibox.layout.align.horizontal,
+            expand = "none",
 
-            {
-                layout = wibox.layout.align.horizontal,
-                expand = "none",
+            pill(left(screen)),
 
-                pill(left(screen)),
+            pill(middle(screen)),
 
-                pill(middle(screen)),
-
-                pill(right())
-            }
-        },
+            pill(right())
+        }
     }
 end

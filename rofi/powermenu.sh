@@ -22,6 +22,7 @@ shutdown=''
 reboot=''
 lock=''
 suspend=''
+hibernate='󰜗'
 logout=''
 yes=''
 no=''
@@ -54,7 +55,7 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+	echo -e "$lock\n$suspend\n$hibernate\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
 # Execute Command
@@ -66,9 +67,11 @@ run_cmd() {
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
 		elif [[ $1 == '--suspend' ]]; then
-			mpc -q pause
-			amixer set Master mute
+            playerctl pause
 			systemctl suspend
+		elif [[ $1 == '--hibernate' ]]; then
+            playerctl pause
+			systemctl hibernate
 		elif [[ $1 == '--logout' ]]; then
             awesome-client 'awesome.quit()' 
 		fi
@@ -91,6 +94,9 @@ case ${chosen} in
         ;;
     $suspend)
 		run_cmd --suspend
+        ;;
+    $hibernate)
+		run_cmd --hibernate
         ;;
     $logout)
 		run_cmd --logout

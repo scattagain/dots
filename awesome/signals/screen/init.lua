@@ -24,4 +24,5 @@ awful.screen.connect_for_each_screen(function(screen)
     )
 
     wibar(screen)
+    screen.wibar_offset.target = 0
 end)

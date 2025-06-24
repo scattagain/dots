@@ -48,12 +48,14 @@ local function focused(screen)
     }
 end
 
-local function minimized(screen)
+local function unfocused(screen)
     return awful.widget.tasklist {
         buttons         = tasklist_buttons,
 
         screen          = screen,
-        filter          = awful.widget.tasklist.filter.minimizedcurrenttags,
+        filter          = function (c, s)
+            return not awful.widget.tasklist.filter.focused(c,s) and awful.widget.tasklist.filter.currenttags(c,s)
+        end,
 
         widget_template = {
             layout = wibox.layout.fixed.horizontal,
@@ -76,5 +78,5 @@ end
 
 return {
     focused = focused,
-    minimized = minimized
+    unfocused = unfocused
 }

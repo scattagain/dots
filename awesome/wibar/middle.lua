@@ -13,7 +13,7 @@ return function(screen)
 
             {
                 left = beautiful.wibar_widget_gap * 4,
-                right = beautiful.wibar_widget_gap * 4,
+                right = beautiful.wibar_widget_gap * 2,
                 draw_empty = false,
                 widget = wibox.container.margin,
 
@@ -22,12 +22,12 @@ return function(screen)
             },
 
             {
-                left = beautiful.wibar_widget_gap * 4,
+                left = beautiful.wibar_widget_gap * 2,
                 right = beautiful.wibar_widget_gap * 4,
                 draw_empty = false,
                 widget = wibox.container.margin,
 
-                tasklist.minimized(screen),
+                tasklist.unfocused(screen),
             }
         }
     }

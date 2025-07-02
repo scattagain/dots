@@ -17,6 +17,7 @@ theme.font                                      = "JetBrainsMono Nerd Font"
 
 theme.catppuccin                                = {}
 theme.catppuccin.accent                         = "#f0c6c6"
+theme.catppuccin.red                            = "#ed8796"
 theme.catppuccin.text                           = "#cad3f5"
 theme.catppuccin.subtext1                       = "#b8c0e0"
 theme.catppuccin.subtext0                       = "#a5adcb"
@@ -65,6 +66,7 @@ theme.prompt_fg                                 = "#ff0000"
 -- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
 theme.taglist_bg_focus = theme.catppuccin.accent
 theme.taglist_bg_empty = theme.catppuccin.surface0
+theme.taglist_bg_urgent = theme.catppuccin.red
 theme.taglist_bg_occupied = theme.catppuccin.surface2
 theme.taglist_shape = gears.shape.rounded_bar
 -- tasklist_[bg|fg]_[focus|urgent]

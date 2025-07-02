@@ -10,10 +10,9 @@ return function()
         layout = wibox.layout.fixed.horizontal,
         spacing = beautiful.wibar_widget_gap,
 
-        spacing.padding,
-
         {
-            margins = beautiful.bar_border_width * 2,
+            top = beautiful.bar_border_width * 2,
+            bottom = beautiful.bar_border_width * 2,
             widget = wibox.container.margin,
 
             wibox.widget.systray()
@@ -35,18 +34,29 @@ return function()
         },
 
 
-        wibox.widget.textclock("%a %b %d - %I:%M %p "),
+        {
+            left = beautiful.wibar_widget_gap,
+            right = beautiful.wibar_widget_gap,
+            widget = wibox.container.margin,
 
-        volume_widget {
-            card = 0,
-            device = "default",
-            widget_type = "horizontal_bar",
-            shape = gears.shape.rounded_bar,
-            width = 60,
-            main_color = beautiful.catppuccin.accent,
-            bg_color = beautiful.catppuccin.surface1,
+            wibox.widget.textclock("%a %b %d - %I:%M %p"),
         },
 
-        spacing.padding,
+
+        {
+            right = -4,
+            widget = wibox.container.margin,
+
+            volume_widget {
+                card = 0,
+                device = "default",
+                widget_type = "horizontal_bar",
+                shape = gears.shape.rounded_bar,
+                width = 60,
+                main_color = beautiful.catppuccin.accent,
+                bg_color = beautiful.catppuccin.surface1,
+            }
+        },
+
     }
 end

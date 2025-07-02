@@ -10,6 +10,13 @@ return function(widget)
         bg = beautiful.bg_normal,
         widget = wibox.container.background,
 
-        widget
+        {
+            left = beautiful.wibar_widget_gap * 2,
+            right = beautiful.wibar_widget_gap * 2,
+            draw_empty = false,
+            widget = wibox.container.margin,
+
+            widget
+        }
     }
 end

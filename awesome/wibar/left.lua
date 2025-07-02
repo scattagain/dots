@@ -9,8 +9,6 @@ return function(screen)
         layout = wibox.layout.fixed.horizontal,
         spacing = beautiful.wibar_widget_gap,
 
-        spacing.padding,
-
         {
             widget = wibox.container.margin,
             top = 5,
@@ -20,8 +18,6 @@ return function(screen)
             layoutbox(screen)
         },
 
-        taglist(screen),
-
-        spacing.padding,
+        taglist(screen)
     }
 end

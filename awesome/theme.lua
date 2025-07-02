@@ -15,21 +15,8 @@ local theme                                     = {}
 
 theme.font                                      = "JetBrainsMono Nerd Font"
 
-theme.catppuccin                                = {}
-theme.catppuccin.accent                         = "#f0c6c6"
-theme.catppuccin.red                            = "#ed8796"
-theme.catppuccin.text                           = "#cad3f5"
-theme.catppuccin.subtext1                       = "#b8c0e0"
-theme.catppuccin.subtext0                       = "#a5adcb"
-theme.catppuccin.overlay2                       = "#939ab7"
-theme.catppuccin.overlay1                       = "#8087a2"
-theme.catppuccin.overlay0                       = "#6e738d"
-theme.catppuccin.surface2                       = "#5b6078"
-theme.catppuccin.surface1                       = "#494d64"
-theme.catppuccin.surface0                       = "#363a4f"
-theme.catppuccin.base                           = "#24273a"
-theme.catppuccin.mantle                         = "#1e2030"
-theme.catppuccin.crust                          = "#181926"
+theme.catppuccin                                = require("catppuccin").macchiato
+theme.catppuccin.accent                         = theme.catppuccin.flamingo
 
 theme.bg_normal                                 = theme.catppuccin.base
 theme.bg_focus                                  = theme.catppuccin.surface1

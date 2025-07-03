@@ -4,7 +4,7 @@ local beautiful = require("beautiful")
 local left      = require("wibar.left")
 local middle    = require("wibar.middle")
 local right     = require("wibar.right")
-local layout     = require("wibar.layout")
+local layout = require("wibar.layout")
 local pill      = require("widgets.pill")
 local rubato    = require("rubato")
 
@@ -38,7 +38,7 @@ return function(screen)
         widget = wibox.container.margin,
 
         {
-            layout = layout.horizontal,
+            layout = layout.alignModified.horizontal,
             spacing = beautiful.wibar_widget_gap * 2,
 
             pill(left(screen)),

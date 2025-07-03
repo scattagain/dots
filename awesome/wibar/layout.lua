@@ -2,9 +2,9 @@ local base = require("wibox.widget.base")
 local fixed = require("wibox.layout.fixed")
 local gtable = require("gears.table")
 
-local layout = {}
+local alignModified = {}
 
-function layout:layout(context, width, height)
+function alignModified:layout(context, width, height)
     local result = {}
     local space_left = width - self._private.spacing * 2
     local left_padding = self._private.spacing
@@ -32,15 +32,53 @@ function layout:layout(context, width, height)
     return result
 end
 
-function layout:fit(orig_width, orig_height)
+function alignModified:fit(orig_width, orig_height)
     -- this is a lone child, we dont care
     return orig_width, orig_height
 end
 
-function layout.horizontal(...)
+function alignModified.horizontal(...)
     local ret = fixed.horizontal(...)
-    gtable.crush(ret, layout, true)
+    gtable.crush(ret, alignModified, true)
     return ret
 end
 
-return layout
+-----------------------------
+
+local prioritizeRight = {}
+
+function prioritizeRight:layout(context, width, height)
+    local result = {}
+    local space_left = width - self._private.spacing
+    local left_padding = self._private.spacing
+
+    local rightw, _ = base.fit_widget(self, context, self._private.widgets[2], width, height)
+    space_left = space_left - rightw
+
+    local leftw, _ = base.fit_widget(self, context, self._private.widgets[1], space_left, height)
+    table.insert(result, base.place_widget_at(self._private.widgets[1], 0, 0, leftw, height))
+    left_padding = left_padding + leftw
+
+    table.insert(result, base.place_widget_at(self._private.widgets[2], left_padding, 0, rightw, height))
+
+    return result
+end
+
+function prioritizeRight:fit(context, orig_width, orig_height)
+    local rightw, _ = base.fit_widget(self, context, self._private.widgets[2], orig_width, orig_height)
+    local leftw, _ = base.fit_widget(self, context, self._private.widgets[1], orig_width - self._private.spacing - rightw, orig_height)
+
+    return rightw + leftw, orig_height
+end
+
+function prioritizeRight.horizontal(...)
+    local ret = fixed.horizontal(...)
+    gtable.crush(ret, prioritizeRight, true)
+    return ret
+end
+
+return {
+    alignModified = alignModified,
+    prioritizeRight = prioritizeRight
+}
+

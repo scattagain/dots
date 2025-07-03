@@ -1,6 +1,6 @@
 return {
+    naughty = require("signals.naughty"),
     client = require("signals.client"),
     screen = require("signals.screen"),
-    naughty = require("signals.naughty"),
     awesome = require("signals.awesome")
 }

@@ -50,7 +50,7 @@ local prioritizeRight = {}
 function prioritizeRight:layout(context, width, height)
     local result = {}
     local space_left = width
-    local left_padding = self._private.spacing
+    local left_padding = 0
 
     local rightw, _ = base.fit_widget(self, context, self._private.widgets[2], width, height)
     if rightw > 0 then
@@ -59,7 +59,9 @@ function prioritizeRight:layout(context, width, height)
 
     local leftw, _ = base.fit_widget(self, context, self._private.widgets[1], space_left, height)
     table.insert(result, base.place_widget_at(self._private.widgets[1], 0, 0, leftw, height))
-    left_padding = left_padding + leftw
+    if leftw > 0 then
+        left_padding = self._private.spacing + leftw
+    end
 
     table.insert(result, base.place_widget_at(self._private.widgets[2], left_padding, 0, rightw, height))
 
@@ -73,7 +75,7 @@ function prioritizeRight:fit(context, orig_width, orig_height)
     local rightw, _ = base.fit_widget(self, context, self._private.widgets[2], orig_width, orig_height)
     if rightw > 0 then
         space_left = space_left - self._private.spacing - rightw
-        w = rightw + self._private.spacing
+        w = rightw
     end
 
     local leftw, _ = base.fit_widget(self, context, self._private.widgets[1], space_left, orig_height)

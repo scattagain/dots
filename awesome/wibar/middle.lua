@@ -5,10 +5,8 @@ local spacing = require("widgets.spacing")
 
 return function(screen)
     return {
-        widget = wibox.container.constraint,
         layout = wibox.layout.fixed.horizontal,
-        spacing = beautiful.wibar_widget_gap,
-        width = 900,
+        spacing = beautiful.wibar_widget_gap * 2,
 
         tasklist.focused(screen),
         tasklist.unfocused(screen)

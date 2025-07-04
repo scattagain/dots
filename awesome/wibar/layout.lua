@@ -8,6 +8,7 @@ function alignModified:layout(context, width, height)
     local result = {}
     local space_left = width - self._private.spacing * 2
     local left_padding = self._private.spacing
+    local right_padding = width - self._private.spacing
 
     if self._private.widgets[1] then
         local w, h = base.fit_widget(self, context, self._private.widgets[1], width, height)
@@ -20,11 +21,14 @@ function alignModified:layout(context, width, height)
         local w, h = base.fit_widget(self, context, self._private.widgets[3], width, height)
         table.insert(result, base.place_widget_at(self._private.widgets[3], width - w, 0, w, h))
         space_left = space_left - w
+        right_padding = right_padding - w
     end
 
     if self._private.widgets[2] then
         local w, h = base.fit_widget(self, context, self._private.widgets[2], space_left, height)
-        local x = math.max(width/2 - w/2, left_padding)
+        local midpoint = width/2 - w/2
+        local overflow = midpoint + w > right_padding and midpoint + w - right_padding or 0
+        local x = math.max(midpoint - overflow, left_padding)
         table.insert(result, base.place_widget_at(self._private.widgets[2], x, 0, w, h))
         space_left = space_left - w
     end

@@ -43,20 +43,14 @@ return function()
         },
 
 
-        {
-            right = -4,
-            widget = wibox.container.margin,
-
-            volume_widget {
-                card = 0,
-                device = "default",
-                widget_type = "horizontal_bar",
-                shape = gears.shape.rounded_bar,
-                width = 60,
-                main_color = beautiful.catppuccin.accent,
-                bg_color = beautiful.catppuccin.surface1,
-            }
-        },
-
+        volume_widget {
+            card = 0,
+            device = "default",
+            widget_type = "horizontal_bar",
+            shape = gears.shape.rounded_bar,
+            width = 60,
+            main_color = beautiful.catppuccin.accent,
+            bg_color = beautiful.catppuccin.surface1,
+        }
     }
 end

@@ -81,6 +81,10 @@ function prioritizeRight:fit(context, orig_width, orig_height)
     local leftw, _ = base.fit_widget(self, context, self._private.widgets[1], space_left, orig_height)
     w = w + leftw
 
+    if leftw > 0 and rightw > 0 then
+        w = w + self._private.spacing
+    end
+
     return w, orig_height
 end
 

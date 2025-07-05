@@ -2,7 +2,6 @@ local awful = require("awful")
 local wibox = require("wibox")
 local rubato = require("rubato")
 local mod = require("bindings.mod")
--- local client = require("client")
 
 local taglist_buttons = {
     awful.button {

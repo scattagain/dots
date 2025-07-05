@@ -1,6 +1,5 @@
 local wibox = require("wibox")
 local gears = require("gears")
-local spacing = require('widgets.spacing')
 local beautiful = require("beautiful")
 local spotify_widget = require('awesome-wm-widgets.spotify-widget.spotify')
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')

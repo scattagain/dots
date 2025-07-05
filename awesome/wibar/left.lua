@@ -1,6 +1,5 @@
 local taglist = require('widgets.taglist')
 local layoutbox = require('widgets.layoutbox')
-local spacing = require('widgets.spacing')
 local beautiful = require("beautiful")
 local wibox = require("wibox")
 

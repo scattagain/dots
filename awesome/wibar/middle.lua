@@ -1,7 +1,5 @@
-local wibox = require("wibox")
 local beautiful = require("beautiful")
 local tasklist  = require("widgets.tasklist")
-local spacing = require("widgets.spacing")
 local layout = require("wibar.layout")
 
 return function(screen)

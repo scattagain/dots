@@ -64,7 +64,6 @@ local function unfocused(screen)
             {
                 top = 5,
                 bottom = 5,
-                right = beautiful.wibar_widget_gap,
                 widget  = wibox.container.margin,
 
                 {

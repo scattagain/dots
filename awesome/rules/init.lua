@@ -1,4 +1,5 @@
 local awful = require("awful")
+local cairo = require("lgi").cairo
 
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -55,6 +56,25 @@ awful.rules.rules = {
     {
         rule = { class = "vesktop" },
         properties = { tag = "Social" }
+    },
+
+    {
+        rule = { name = "Freya App" }, -- Orbolay
+        properties = {
+            maximized = true,
+            ontop = true,
+            border_width = 0,
+            skip_taskbar = true,
+            focusable = false,
+            sticky = true
+        },
+
+        -- Input Passthrough
+        callback = function(c)
+            local img = cairo.ImageSurface(cairo.Format.A1, 0, 0)
+            c.shape_input=img._native
+            img.finish()
+        end
     },
 
     {

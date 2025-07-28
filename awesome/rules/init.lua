@@ -63,7 +63,6 @@ awful.rules.rules = {
         properties = {
             maximized = true,
             ontop = true,
-            border_width = 0,
             skip_taskbar = true,
             focusable = false,
             sticky = true
@@ -78,7 +77,27 @@ awful.rules.rules = {
     },
 
     {
-        rule = { class = "kando" },
+        rule = { class = "controll" }, -- Ignore :3
+        properties = {
+            floating = true,
+            x = 0,
+            y = 0,
+            width = 1920,
+            height = 1080,
+            border_width = 0,
+            ontop = true,
+            focusable = false,
+            sticky = true
+        },
+
+        callback = function(c)
+            local img = cairo.ImageSurface(cairo.Format.A1, 0, 0)
+            c.shape_input=img._native
+            img.finish()
+        end
+    },
+
+    rule = { class = "kando" },
         properties = {
             fullscreen = true,
             ontop = true,
@@ -89,5 +108,4 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
-}
 -- }}}

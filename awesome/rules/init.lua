@@ -65,7 +65,8 @@ awful.rules.rules = {
             ontop = true,
             skip_taskbar = true,
             focusable = false,
-            sticky = true
+            sticky = true,
+            border_width = 0
         },
 
         -- Input Passthrough

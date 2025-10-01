@@ -13,5 +13,6 @@ run xcompmgr -n -F
 run flameshot &
 run light-locker
 run xbindkeys
+run fcitx5
 
 setxkbmap -option compose:caps

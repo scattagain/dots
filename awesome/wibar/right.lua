@@ -26,9 +26,9 @@ return function()
                 right = 12,
                 draw_empty = false,
                 widget = wibox.container.margin,
-                spotify_widget {
-                    sp_bin = gears.filesystem.get_configuration_dir() .. "sp",
-                },
+                -- spotify_widget {
+                --     sp_bin = gears.filesystem.get_configuration_dir() .. "sp",
+                -- },
             }
         },
 
@@ -42,14 +42,14 @@ return function()
         },
 
 
-        volume_widget {
-            card = 0,
-            device = "default",
-            widget_type = "horizontal_bar",
-            shape = gears.shape.rounded_bar,
-            width = 60,
-            main_color = beautiful.catppuccin.accent,
-            bg_color = beautiful.catppuccin.surface1,
-        }
+        -- volume_widget {
+        --     card = 0,
+        --     device = "default",
+        --     widget_type = "horizontal_bar",
+        --     shape = gears.shape.rounded_bar,
+        --     width = 60,
+        --     main_color = beautiful.catppuccin.accent,
+        --     bg_color = beautiful.catppuccin.surface1,
+        -- }
     }
 end

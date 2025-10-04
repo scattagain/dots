@@ -36,27 +36,6 @@ awful.keyboard.append_global_keybindings {
         { description = "get powermenu", group = "awesome" }),
     awful.key({ mod.super }, "/", hotkeys_popup.show_help,
         { description = "show help", group = "awesome" }),
-    awful.key({ mod.super, }, "Left", awful.tag.viewprev,
-        { description = "view previous", group = "tag" }),
-    awful.key({ mod.super, }, "Right", awful.tag.viewnext,
-        { description = "view next", group = "tag" }),
-
-    awful.key({ mod.super, mod.control }, "Left", function()
-            local screen = awful.screen.focused()
-            local tag = screen.selected_tag
-            local other = screen.tags[tag.index - 1]
-            if other then tag:swap(other) end
-        end,
-        { description = "swap with previous", group = "tag" }
-    ),
-    awful.key({ mod.super, mod.control }, "Right", function()
-            local screen = awful.screen.focused()
-            local tag = screen.selected_tag
-            local other = screen.tags[tag.index + 1]
-            if other then tag:swap(other) end
-        end,
-        { description = "swap with next", group = "tag" }
-    ),
 
     awful.key({ mod.super, }, "j",
         function()
@@ -129,6 +108,11 @@ awful.keyboard.append_global_keybindings {
 }
 
 awful.keyboard.append_global_keybindings {
+    awful.key({ mod.super, }, "Left", awful.tag.viewprev,
+        { description = "view previous", group = "tag" }),
+    awful.key({ mod.super, }, "Right", awful.tag.viewnext,
+        { description = "view next", group = "tag" }),
+
     awful.key {
         modifiers   = { mod.super },
         keygroup    = 'numrow',
@@ -142,6 +126,25 @@ awful.keyboard.append_global_keybindings {
             end
         end
     },
+
+
+    awful.key({ mod.super, mod.control }, "Left", function()
+            local screen = awful.screen.focused()
+            local tag = screen.selected_tag
+            local other = screen.tags[tag.index - 1]
+            if other then tag:swap(other) end
+        end,
+        { description = "swap with previous", group = "tag" }
+    ),
+    awful.key({ mod.super, mod.control }, "Right", function()
+            local screen = awful.screen.focused()
+            local tag = screen.selected_tag
+            local other = screen.tags[tag.index + 1]
+            if other then tag:swap(other) end
+        end,
+        { description = "swap with next", group = "tag" }
+    ),
+
     awful.key {
         modifiers   = { mod.super, mod.control },
         keygroup    = 'numrow',
@@ -155,6 +158,8 @@ awful.keyboard.append_global_keybindings {
             end
         end
     },
+
+
     awful.key {
         modifiers   = { mod.super, mod.shift },
         keygroup    = 'numrow',

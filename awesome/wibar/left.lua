@@ -7,6 +7,7 @@ return function(screen)
     return {
         layout = wibox.layout.fixed.horizontal,
         spacing = beautiful.wibar_widget_gap,
+        forced_height = beautiful.wibar_height,
 
         {
             widget = wibox.container.margin,

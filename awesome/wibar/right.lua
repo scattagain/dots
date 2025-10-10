@@ -8,6 +8,7 @@ return function()
     return {
         layout = wibox.layout.fixed.horizontal,
         spacing = beautiful.wibar_widget_gap,
+        forced_height = beautiful.wibar_height,
 
         {
             top = beautiful.bar_border_width * 2,

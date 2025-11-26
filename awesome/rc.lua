@@ -3,6 +3,15 @@ package.loaded["naughty.dbus"] = {}
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+local lgi = require("lgi")
+local Gio = lgi.Gio
+local GioUnix = lgi.GioUnix
+
+if not Gio.UnixInputStream and GioUnix then
+    Gio.UnixInputStream = GioUnix.InputStream
+    Gio.UnixOutputStream = GioUnix.OutputStream
+end
+
 local awful = require("awful")
 local gears = require("gears")
 
